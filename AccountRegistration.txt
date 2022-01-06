@@ -1,0 +1,117 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace AccountRegistration
+{
+    public partial class FrmRegistration : Form
+    {
+
+        public class StudentInfoClass
+        {
+            public delegate long DelegateNumber(long number);
+            public delegate string DelegateText(string txt);
+
+            public static string FirstName = " ";
+            public static string LastName = " ";
+            public static string MiddleName = " ";
+            public static string Address = " ";
+            public static string Program = " ";
+
+            public static long Age = 0;
+            public static long ContactNo = 0;
+            public static long StudentNo = 0;
+
+            public static string GetFirstName(string FirstName)
+            {
+                return FirstName;
+
+            }
+
+            public static string GetLastName(string LastName)
+            {
+                return LastName;
+
+            }
+
+            public static string GetMiddleName(string MiddleName)
+            {
+                return MiddleName;
+
+            }
+
+            public static string GetAddress(string Address)
+            {
+                return Address;
+
+            }
+
+            public static string GetProgram(string Program)
+            {
+                return Program;
+
+            }
+
+            public static long GetAge(long Age)
+            {
+                return Age;
+
+            }
+
+            public static long GetContactNo(long ContactNo)
+            {
+                return ContactNo;
+
+            }
+
+            public static long GetStudentNo(long StudentNo)
+            {
+                return StudentNo;
+
+            }
+        }
+
+        public FrmRegistration()
+        {
+            InitializeComponent();
+        }
+
+        private void FrmRegistration_Load(object sender, EventArgs e)
+        {
+           
+
+        }
+        public void button1_Click(object sender, EventArgs e)
+        {
+            StudentInfoClass.Program = prgrm.Text.ToString();
+            StudentInfoClass.FirstName = frstname.Text.ToString();
+            StudentInfoClass.LastName = lstname.Text.ToString();
+            StudentInfoClass.MiddleName = midname.Text.ToString();
+            StudentInfoClass.Address = add.Text.ToString();
+
+            StudentInfoClass.Age = long.Parse(age.Text.ToString());
+            StudentInfoClass.ContactNo = long.Parse(cntctnum.Text.ToString());
+            StudentInfoClass.StudentNo = long.Parse(studnum.Text.ToString());
+
+            FrmConfirm Register = new FrmConfirm();
+            if (Register.ShowDialog() == DialogResult.OK)
+            {
+                prgrm.Text = " ";
+                frstname.Text = " ";
+                lstname.Text = " ";
+                midname.Text = " ";
+                studnum.Text = " ";
+                age.Text = " ";
+                cntctnum.Text = " ";
+                add.Text = " ";
+                
+            }
+        }
+    }
+}
